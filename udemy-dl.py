@@ -342,6 +342,7 @@ class Udemy(WebVtt2Srt, ProgressBar):
                         else:
                             sys.stdout.write (fc + sd + "[" + fm + sb + "*" + fc + sd + "] : " + fg + sd + "Asset : '%s' " % (title) + fc + sb + "(download skipped).\n")
                             sys.stdout.write (fc + sd + "[" + fr + sb + "-" + fc + sd + "] : " + fr + sd + "{}\n".format(msg))
+                            sys.exit(1)
 
     def download_subtitles(self, lecture_subtitles='', language='', filepath='', unsafe=False):
         if language:
@@ -375,6 +376,7 @@ class Udemy(WebVtt2Srt, ProgressBar):
                     else:
                         sys.stdout.write (fc + sd + "[" + fm + sb + "*" + fc + sd + "] : " + fg + sd + "Subtitle : '%s' " % (title) + fc + sb + "(download skipped).\n")
                         sys.stdout.write (fc + sd + "[" + fr + sb + "-" + fc + sd + "] : " + fr + sd + "{}\n".format(msg))
+                        sys.exit(1)
 
     def download_lectures(self, lecture_best='', lecture_title='', inner_index='', lectures_count='', filepath='', unsafe=False):
         if lecture_best:
@@ -397,8 +399,10 @@ class Udemy(WebVtt2Srt, ProgressBar):
                 else:
                     if not unsafe:
                         sys.stdout.write (fc + sd + "[" + fm + sb + "*" + fc + sd + "] : " + fg + sd + "Lecture : '%s' " % (lecture_title) + fc + sb + "(download skipped).\n")
+                        sys.exit(1)
                     if unsafe:
                         sys.stdout.write (fc + sd + "[" + fm + sb + "*" + fc + sd + "] : " + fg + sd + "'%s' " % (lecture_title) + fc + sb + "(download skipped).\n")
+                        sys.exit(1)
                     sys.stdout.write (fc + sd + "[" + fr + sb + "-" + fc + sd + "] : " + fr + sd + "{}\n".format(msg))
 
     def download_captions_only(self, lecture_subtitles='', language='', lecture_assets='', filepath='', unsafe=False):
