@@ -163,6 +163,7 @@ class Downloader(object):
                 response = self._sess.get(self.url, headers=headers, stream=True, timeout=10)
             except conn_error as error:
                 return {'status': 'False', 'msg': 'ConnectionError: %s' % (str(error))}
+                sys.exit(1)
             with response:
                 if response.ok:
                     bytes_to_be_downloaded = total = int(response.headers.get('Content-Length'))
