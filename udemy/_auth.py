@@ -53,7 +53,7 @@ class UdemyAuth(object):
         except conn_error as e:
             sys.stdout.write(fc + sd + "[" + fr + sb + "-" + fc + sd + "] : " + fr + sb + "Connection error : make sure your internet connection is working.\n")
             time.sleep(0.8)
-            sys.exit(0)
+            sys.exit(1)
         else:
             login_form = hidden_inputs(
                             search_regex(

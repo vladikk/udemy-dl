@@ -128,11 +128,11 @@ class Udemy(ProgressBar):
         except conn_error as e:
             sys.stdout.write(fc + sd + "[" + fr + sb + "-" + fc + sd + "] : " + fr + sb + "Connection error : make sure your internet connection is working.\n")
             time.sleep(0.8)
-            sys.exit(0)
+            sys.exit(1)
         except (ValueError, Exception) as e:
             sys.stdout.write(fc + sd + "[" + fr + sb + "-" + fc + sd + "] : " + fr + sb + "%s.\n" % (e))
             time.sleep(0.8)
-            sys.exit(0)
+            sys.exit(1)
         else:
             results = webpage.get('results', [])
         return results
@@ -145,11 +145,11 @@ class Udemy(ProgressBar):
         except conn_error as e:
             sys.stdout.write(fc + sd + "[" + fr + sb + "-" + fc + sd + "] : " + fr + sb + "Connection error : make sure your internet connection is working.\n")
             time.sleep(0.8)
-            sys.exit(0)
+            sys.exit(1)
         except (ValueError, Exception) as e:
             sys.stdout.write(fc + sd + "[" + fr + sb + "-" + fc + sd + "] : " + fr + sb + "%s.\n" % (e))
             time.sleep(0.8)
-            sys.exit(0)
+            sys.exit(1)
         else:
             results = webpage.get('results', [])
         return results
@@ -162,11 +162,11 @@ class Udemy(ProgressBar):
         except conn_error as e:
             sys.stdout.write(fc + sd + "[" + fr + sb + "-" + fc + sd + "] : " + fr + sb + "Connection error : make sure your internet connection is working.\n")
             time.sleep(0.8)
-            sys.exit(0)
+            sys.exit(1)
         except (ValueError, Exception) as e:
             sys.stdout.write(fc + sd + "[" + fr + sb + "-" + fc + sd + "] : " + fr + sb + "%s.\n" % (e))
             time.sleep(0.8)
-            sys.exit(0)
+            sys.exit(1)
         else:
             results = webpage.get('results', [])
             if results:
@@ -215,7 +215,7 @@ class Udemy(ProgressBar):
         except conn_error as e:
             sys.stdout.write(fc + sd + "[" + fr + sb + "-" + fc + sd + "] : " + fr + sb + "Connection error : make sure your internet connection is working.\n")
             time.sleep(0.8)
-            sys.exit(0)
+            sys.exit(1)
         else:
             _next = data.get('next')
             while _next:
@@ -224,7 +224,7 @@ class Udemy(ProgressBar):
                 except conn_error as e:
                     sys.stdout.write(fc + sd + "[" + fr + sb + "-" + fc + sd + "] : " + fr + sb + "Connection error : make sure your internet connection is working.\n")
                     time.sleep(0.8)
-                    sys.exit(0)
+                    sys.exit(1)
                 else:
                     _next = resp.get('next')
                     results = resp.get('results')
@@ -245,7 +245,7 @@ class Udemy(ProgressBar):
         except conn_error as e:
             sys.stdout.write(fc + sd + "[" + fr + sb + "-" + fc + sd + "] : " + fr + sb + "Connection error : make sure your internet connection is working.\n")
             time.sleep(0.8)
-            sys.exit(0)
+            sys.exit(1)
         except (ValueError, Exception) as e:
             resp = self._extract_large_course_content(url=url)
             return resp
